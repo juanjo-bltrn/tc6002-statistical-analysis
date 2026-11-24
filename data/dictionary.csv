@@ -1,0 +1,18 @@
+﻿Variable,Role,Type,Description,Count
+Gender,Feature,Categorical,Gender,2111
+Age,Feature,Continuous,Age,2111
+Height,Feature,Continuous,Height,2111
+Weight,Feature,Continuous,Weight,2111
+family_history_with_overweight,Feature,Binary,Has a family member suffered or suffers from overweight?,2111
+FAVC,Feature,Binary,Do you eat high caloric food frequently?,2111
+FCVC,Feature,Integer,Do you usually eat vegetables in your meals?,2111
+NCP,Feature,Continuous,How many main meals do you have daily?,2111
+CAEC,Feature,Categorical,Do you eat any food between meals?,2111
+SMOKE,Feature,Binary,Do you smoke?,2111
+CH2O,Feature,Continuous,How much water do you drink daily?,2111
+SCC,Feature,Binary,Do you monitor the calories you eat daily?,2111
+FAF,Feature,Continuous,How often do you have physical activity?,2111
+TUE,Feature,Integer,"How much time do you use technological devices such as cell phone, videogames, television, computer and others?",2111
+CALC,Feature,Categorical,How often do you drink alcohol?,2111
+MTRANS,Feature,Categorical,Which transportation do you usually use?,2111
+NObeyesdad,Target,Categorical,Obesity level,2111
