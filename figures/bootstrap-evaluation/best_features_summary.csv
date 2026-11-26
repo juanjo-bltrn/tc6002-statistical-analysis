@@ -1,0 +1,6 @@
+scope,highest_power_feature,highest_power_value,lowest_type1_feature,lowest_type1_value
+Level: Insufficient_Weight,Weight,0.9852941176470589,NCP,0.06253398586188146
+Level: Normal_Weight,Weight,0.9303135888501742,FAF,0.14583333333333334
+Level: Overweight,Weight,0.9586206896551724,Age,0.1998693664271718
+Level: Obesity,NCP,0.9876543209876543,Weight,0.0456540825285338
+Overall (Mean Across Levels),Weight,0.9297196504784306,Weight,0.22194158163048971
