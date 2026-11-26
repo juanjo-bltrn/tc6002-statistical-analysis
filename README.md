@@ -14,7 +14,7 @@ The target is recoded into four levels: Insufficient Weight (272), Normal Weight
 |------|--------|---------|
 | Marginal distributions | `marginal_distributions.py` | PMF/CDF for categorical features; Gaussian KDE (Scott's rule) and ECDF for continuous ones; empirical supports. |
 | Continuous features | `continuous_features_analysis.py` | Conditional means/variances with bootstrap 95% CIs; one-way ANOVA ($\eta^2$) with Welch and Kruskal–Wallis checks; Shapiro–Wilk, Brown–Forsythe, Q–Q plots; Tukey HSD and Welch post-hoc tests; Benjamini–Hochberg FDR. |
-| Categorical features | `categorical_features_analysis.py` | Conditional prevalences with Wilson CIs; Pearson $\Chi ^2$ and G-test (Monte Carlo exact test for sparse cells); Cramér's $V$; standardized residuals; pairwise post-hoc tests; one-vs-rest accuracy, sensitivity, specificity and Cohen's $\kappa$. |
+| Categorical features | `categorical_features_analysis.py` | Conditional prevalences with Wilson CIs; Pearson $\chi^2$ and G-test (Monte Carlo exact test for sparse cells); Cramér's $V$; standardized residuals; pairwise post-hoc tests; one-vs-rest accuracy, sensitivity, specificity and Cohen's $\kappa$. |
 | Conditional distributions | `conditional_distributions.py` | Conditional PMF/CDF and KDE/ECDF per obesity level; quartiles and 95% central intervals. |
 | Model-based expectations | `model_based_expectations.py` | Conditional mean and variance from the KDE by numerical integration, compared with sample moments and the analytical KDE variance. |
 | Discriminative evaluation | `bootstrap_evaluation.py` | One-vs-rest KS tests; discriminative intervals; ROC/AUC; Youden-optimal thresholds; Type I/II error and power; bootstrap 95% CIs (B = 1,000). |
