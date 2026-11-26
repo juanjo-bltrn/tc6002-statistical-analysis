@@ -27,7 +27,7 @@ LEVEL_COLORS = {
 
 
 # ---------------------------------------------------------------------------
-# Helpers
+#                                 Helpers
 # ---------------------------------------------------------------------------
 def _safe_name(name: str) -> str:
     """File-system friendly version of a column name."""
@@ -57,7 +57,7 @@ def _resolve_categories(
 
 
 # ---------------------------------------------------------------------------
-# Categorical & binary features: Conditional PMF + Conditional CDF
+#      Categorical & binary features: Conditional PMF + Conditional CDF
 # ---------------------------------------------------------------------------
 def conditional_categorical_pmf_cdf(
     df: pd.DataFrame,
@@ -169,7 +169,7 @@ def plot_conditional_categorical(
 
 
 # ---------------------------------------------------------------------------
-# Continuous features: Conditional PDF (KDE) + Conditional CDF (ECDF)
+#    Continuous features: Conditional PDF (KDE) + Conditional CDF (ECDF)
 # ---------------------------------------------------------------------------
 def conditional_continuous_pdf_cdf(
     df: pd.DataFrame,
@@ -301,7 +301,7 @@ def plot_conditional_continuous(
 
 
 # ---------------------------------------------------------------------------
-# Main function
+#                             Main function
 # ---------------------------------------------------------------------------
 def conditional_distributions(
     df: pd.DataFrame,
@@ -382,60 +382,3 @@ def conditional_distributions(
         "support_intervals": support_intervals,
         "figures": figures,
     }
-
-
-# ---------------------------------------------------------------------------
-# Example usage
-# ---------------------------------------------------------------------------
-if __name__ == "__main__":
-    DATA_PATH = "ObesityDataSet_raw_and_data_sinthetic.csv"
-    df = pd.read_csv(DATA_PATH)
-
-    # Recode 7 original obesity classes into the 4 grouped levels
-    level_map = {
-        "Insufficient_Weight": "Insufficient_Weight",
-        "Normal_Weight": "Normal_Weight",
-        "Overweight_Level_I": "Overweight",
-        "Overweight_Level_II": "Overweight",
-        "Obesity_Type_I": "Obesity",
-        "Obesity_Type_II": "Obesity",
-        "Obesity_Type_III": "Obesity",
-    }
-    df["Obesity_Group"] = df["NObeyesdad"].map(level_map)
-
-    categorical_cols = [
-        "Gender",
-        "family_history_with_overweight",
-        "FAVC",
-        "CAEC",
-        "SMOKE",
-        "SCC",
-        "CALC",
-        "MTRANS",
-    ]
-    continuous_cols = [
-        "Age",
-        "Height",
-        "Weight",
-        "FCVC",
-        "NCP",
-        "CH2O",
-        "FAF",
-        "TUE",
-    ]
-    ordinal_orders = {
-        "CAEC": ["no", "Sometimes", "Frequently", "Always"],
-        "CALC": ["no", "Sometimes", "Frequently", "Always"],
-    }
-
-    results = conditional_distributions(
-        df=df,
-        target_col="Obesity_Group",
-        categorical_features=categorical_cols,
-        continuous_features=continuous_cols,
-        category_orders=ordinal_orders,
-    )
-
-    print("Saved conditional figures:", len(results["figures"]))
-    print("\nConditional support intervals (first 8 rows):")
-    print(results["support_intervals"].head(8).round(3))

@@ -196,7 +196,7 @@ def compare_expectations_feature(
 
 
 # ---------------------------------------------------------------------------
-# Plotting
+#                                 Plotting
 # ---------------------------------------------------------------------------
 def plot_parity_comparison(res_df: pd.DataFrame, out_dir: str) -> str:
     """Two-panel parity plot: Model-Based vs. Sample Mean and Variance."""
@@ -320,7 +320,7 @@ def plot_discrepancies(res_df: pd.DataFrame, tol: float, out_dir: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Driver
+#                                  Driver
 # ---------------------------------------------------------------------------
 def analyze_model_based_expectations(
     df: pd.DataFrame,
@@ -412,25 +412,3 @@ def analyze_model_based_expectations(
         "summary": summary_df,
         "figures": figures,
     }
-
-
-# ---------------------------------------------------------------------------
-# Example pipeline usage (connecting Tasks 2, 4, and 5)
-# ---------------------------------------------------------------------------
-if __name__ == "__main__":
-    # Example standalone or integrated call:
-    # df = pd.read_csv("ObesityDataSet_raw_and_data_sinthetic.csv")
-    # continuous_features = ["Age", "Height", "Weight", "FCVC", "NCP", "CH2O", "FAF", "TUE"]
-    #
-    # t2_out = analyze_continuous_features(df, continuous_features)
-    # t4_out = analyze_conditional_distributions(df, continuous_features, ...)
-    #
-    # t5_out = analyze_model_based_expectations(
-    #     df=df,
-    #     continuous_features=continuous_features,
-    #     task2_stats=t2_out["conditional_stats"],
-    #     task4_distributions=t4_out["continuous_distributions"],
-    #     tol=1e-3,
-    # )
-    # print(t5_out["summary"].to_string(index=False))
-    pass

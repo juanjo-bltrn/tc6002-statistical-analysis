@@ -13,7 +13,7 @@ from scipy import stats
 OUTPUT_DIR = os.path.join("figures", "categorical-features")
 
 # ---------------------------------------------------------------------------
-# Target levels (the target is ALREADY grouped into four categories)
+#    Target levels (the target is ALREADY grouped into four categories)
 # ---------------------------------------------------------------------------
 # Edit these labels if your grouped column uses different spellings.
 LEVELS = ["Insufficient_Weight", "Normal_Weight", "Overweight", "Obesity"]
@@ -24,7 +24,7 @@ INK, INK_SOFT, GRID = "#191919", "#666666", "#e6e6e6"
 
 
 # ---------------------------------------------------------------------------
-# Helpers
+#                                  Helpers
 # ---------------------------------------------------------------------------
 def prepare_target(
     df: pd.DataFrame, target: str = "NObeyesdad", new_col: str = "obesity_level"
@@ -111,7 +111,7 @@ def _contingency_table(
 
 
 # ---------------------------------------------------------------------------
-# (a) Conditional prevalence (proportions) with 95% Wilson CIs
+#       (a) Conditional prevalence (proportions) with 95% Wilson CIs
 # ---------------------------------------------------------------------------
 def conditional_prevalence(
     df: pd.DataFrame,
@@ -146,7 +146,7 @@ def conditional_prevalence(
 
 
 # ---------------------------------------------------------------------------
-# (b) Chi-squared, G-test (ANOFA equivalent), and Monte Carlo exact test
+#   (b) Chi-squared, G-test (ANOFA equivalent), and Monte Carlo exact test
 # ---------------------------------------------------------------------------
 def _monte_carlo_chi2_p(
     obs: np.ndarray, n_sim: int = 5000, rng: Optional[np.random.Generator] = None
@@ -242,7 +242,7 @@ def test_categorical_feature(
 
 
 # ---------------------------------------------------------------------------
-# (c) Post-hoc pairwise comparisons (chi-squared / Fisher's exact)
+#        (c) Post-hoc pairwise comparisons (chi-squared / Fisher's exact)
 # ---------------------------------------------------------------------------
 def posthoc_categorical(
     df: pd.DataFrame,
@@ -360,7 +360,7 @@ def diagnostic_metrics_categorical(
 
 
 # ---------------------------------------------------------------------------
-# Figures
+#                                 Figures
 # ---------------------------------------------------------------------------
 def plot_categorical_feature(
     prev_df: pd.DataFrame,
@@ -470,7 +470,7 @@ def plot_effect_sizes(test_df: pd.DataFrame, out_dir: str = OUTPUT_DIR) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Driver
+#                                 Driver
 # ---------------------------------------------------------------------------
 def analyze_categorical_features(
     df: pd.DataFrame,
@@ -565,25 +565,3 @@ def analyze_categorical_features(
         "diagnostics": diag_df,
         "figures": figures,
     }
-
-
-# ---------------------------------------------------------------------------
-# Example usage
-# ---------------------------------------------------------------------------
-if __name__ == "__main__":
-    # Load your dataset (with NObeyesdad already recoded into the 4 LEVELS)
-    # df = pd.read_csv("obesity_grouped.csv")
-    #
-    # categorical_features = [
-    #     "Gender", "family_history_with_overweight", "FAVC",
-    #     "CAEC", "SMOKE", "SCC", "CALC", "MTRANS",
-    # ]
-    # category_orders = {
-    #     "CAEC": ["no", "Sometimes", "Frequently", "Always"],
-    #     "CALC": ["no", "Sometimes", "Frequently", "Always"],
-    # }
-    # results = analyze_categorical_features(
-    #     df, categorical_features, category_orders=category_orders
-    # )
-    # print(results["tests"][["feature", "chi2_stat", "df", "primary_p", "p_fdr", "cramers_v"]])
-    pass
